@@ -1,0 +1,1314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Our Story — Cozy Threads is a handmade crochet boutique born from a love of yarn, creativity and slow living. Meet our artisans and discover our mission."
+    />
+    <title>Our Story — Cozy Threads</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Page Loader -->
+    <div
+      id="pageLoader"
+      style="
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: var(--cream);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s ease;
+      "
+    >
+      <div
+        style="
+          font-family: &quot;Dancing Script&quot;, cursive;
+          font-size: 2.5rem;
+          color: var(--warm-brown-dark);
+          margin-bottom: 1rem;
+        "
+      >
+        Cozy Threads
+      </div>
+      <div style="display: flex; gap: 8px">
+        <span
+          style="
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--dusty-pink);
+            animation: loaderDot 1.2s ease-in-out infinite 0s;
+            display: block;
+          "
+        ></span>
+        <span
+          style="
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--sage);
+            animation: loaderDot 1.2s ease-in-out infinite 0.2s;
+            display: block;
+          "
+        ></span>
+        <span
+          style="
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--lavender);
+            animation: loaderDot 1.2s ease-in-out infinite 0.4s;
+            display: block;
+          "
+        ></span>
+      </div>
+      <style>
+        @keyframes loaderDot {
+          0%,
+          80%,
+          100% {
+            transform: scale(0.6);
+            opacity: 0.4;
+          }
+          40% {
+            transform: scale(1.2);
+            opacity: 1;
+          }
+        }
+      </style>
+    </div>
+
+    <!-- Toast Container -->
+    <div
+      id="toastContainer"
+      class="toast-container-custom"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    <!-- ============================================================ NAVBAR ============================================================ -->
+    <nav
+      id="mainNavbar"
+      class="navbar navbar-expand-lg fixed-top"
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="index.html"
+          aria-label="Cozy Threads — Home"
+        >
+          <div class="brand-logo-icon" aria-hidden="true">
+            <i class="fas fa-yin-yang"></i>
+          </div>
+          <div>
+            <span class="brand-name">Cozy Threads</span>
+            <span class="brand-tagline">Handmade with love</span>
+          </div>
+        </a>
+        <div class="d-flex align-items-center gap-2 d-lg-none">
+          <a
+            href="cart.html"
+            class="nav-icon-btn position-relative"
+            aria-label="Shopping cart"
+          >
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge cart-count" style="display: none">0</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav mx-auto gap-1" role="list">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="about.html" aria-current="page"
+                >Our Story</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+            <button
+              id="navThemeToggle"
+              class="nav-icon-btn"
+              title="Toggle dark/light mode"
+              aria-label="Toggle dark mode"
+            >
+              <i class="fas fa-moon"></i>
+            </button>
+            <a
+              href="products.html"
+              class="nav-icon-btn"
+              title="Search"
+              aria-label="Search"
+              ><i class="fas fa-search"></i
+            ></a>
+            <a
+              href="cart.html"
+              class="nav-icon-btn position-relative d-none d-lg-flex"
+              aria-label="Shopping cart"
+            >
+              <i class="fas fa-shopping-bag"></i>
+              <span class="cart-badge cart-count" style="display: none">0</span>
+            </a>
+            <a
+              href="products.html"
+              class="btn-primary-custom ms-2 d-none d-lg-inline-flex"
+            >
+              <i class="fas fa-store"></i> Shop Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================ ABOUT HERO ============================================================ -->
+    <section class="about-hero" aria-labelledby="aboutHeroTitle">
+      <!-- Decorative blobs -->
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          overflow: hidden;
+        "
+        aria-hidden="true"
+      >
+        <div
+          style="
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(
+              circle,
+              rgba(232, 180, 184, 0.35),
+              transparent
+            );
+            top: -100px;
+            right: -80px;
+            filter: blur(60px);
+            animation: floatBlob 9s ease-in-out infinite;
+          "
+        ></div>
+        <div
+          style="
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(
+              circle,
+              rgba(184, 169, 201, 0.3),
+              transparent
+            );
+            bottom: -60px;
+            left: -60px;
+            filter: blur(60px);
+            animation: floatBlob 11s ease-in-out infinite reverse;
+          "
+        ></div>
+      </div>
+      <div class="container position-relative" style="z-index: 1">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-6 fade-up">
+            <span class="section-badge">Our Story</span>
+            <h1
+              class="section-title"
+              id="aboutHeroTitle"
+              style="font-size: clamp(2.2rem, 5vw, 3.5rem)"
+            >
+              Stitched Together<br />
+              with
+              <span style="color: var(--dusty-pink-dark); font-style: italic"
+                >Passion</span
+              >
+              &<br />
+              <span style="color: var(--sage-dark)">Purpose</span>
+            </h1>
+            <p
+              style="
+                font-size: 1.05rem;
+                color: var(--text-secondary);
+                line-height: 1.8;
+                max-width: 500px;
+                margin-bottom: 2rem;
+              "
+            >
+              Cozy Threads began as a small passion project in a sunlit studio —
+              a love affair with yarn, hooks, and the meditative magic of
+              crochet. Today, it's a community of artisans united by craft and
+              creativity.
+            </p>
+            <div
+              class="page-hero-breadcrumb"
+              aria-label="Breadcrumb navigation"
+            >
+              <a href="index.html">Home</a>
+              <span class="sep" aria-hidden="true">›</span>
+              <span aria-current="page">Our Story</span>
+            </div>
+          </div>
+          <div
+            class="col-lg-6 d-flex justify-content-center fade-up fade-up-delay-2"
+          >
+            <!-- Floating stat cards -->
+            <div style="position: relative; max-width: 460px; width: 100%">
+              <img
+                src="image/story1.jpg"
+                alt="Artisan's hands crocheting with soft pastel yarn"
+                style="
+                  width: 100%;
+                  height: 380px;
+                  object-fit: cover;
+                  border-radius: 30px;
+                  box-shadow: var(--shadow-lg);
+                "
+              />
+              <div
+                class="hero-img-badge badge-top glass-card"
+                aria-hidden="true"
+              >
+                <div
+                  class="badge-icon"
+                  style="background: var(--gradient-lavender)"
+                >
+                  <i class="fas fa-calendar-heart"></i>
+                </div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.85rem">
+                    Founded 2019
+                  </div>
+                  <div style="font-size: 0.7rem; color: var(--text-light)">
+                    5 years of craft
+                  </div>
+                </div>
+              </div>
+              <div
+                class="hero-img-badge badge-bottom glass-card"
+                aria-hidden="true"
+              >
+                <div
+                  class="badge-icon"
+                  style="background: var(--gradient-sage)"
+                >
+                  <i class="fas fa-users"></i>
+                </div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.85rem">
+                    12 Artisans
+                  </div>
+                  <div style="font-size: 0.7rem; color: var(--text-light)">
+                    Across 3 countries
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ OUR STORY NARRATIVE ============================================================ -->
+    <section class="section-wrapper" aria-labelledby="storyTitle">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6 fade-up">
+            <div class="story-img-col">
+              <img
+                src="image/artican-handwork.jpg"
+                alt="Close-up of colourful crochet yarns in a women hand with huck"
+                class="story-img-main"
+              />
+              <img
+                src="image/cardigan1.png"
+                alt="Finished crochet cardigan "
+                class="story-img-accent story-img-accent-1"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6 fade-up fade-up-delay-2">
+            <span class="section-badge">How It All Began</span>
+            <h2 class="section-title" id="storyTitle">A Stitch in Time</h2>
+            <p
+              style="
+                color: var(--text-secondary);
+                line-height: 1.9;
+                margin-bottom: 1.2rem;
+              "
+            >
+              It started in 2021 with a single skein of blush-pink merino wool
+              and a vintage crochet hook. Our founder,
+              <strong style="color: var(--text-primary)">Tamana Nijrabi</strong
+              >, had just moved to a sunny India apartment and needed something
+              to keep her hands busy and her spirit warm during long summer
+              evenings.
+            </p>
+            <p
+              style="
+                color: var(--text-secondary);
+                line-height: 1.9;
+                margin-bottom: 1.2rem;
+              "
+            >
+              What began as a personal hobby quickly became an obsession.
+              Friends started asking where they could buy the delicate bags and
+              boho totes she was making. An Etsy shop followed, then a waitlist,
+              then a small studio and Cozy Threads was born.
+            </p>
+            <p
+              style="
+                color: var(--text-secondary);
+                line-height: 1.9;
+                margin-bottom: 2rem;
+              "
+            >
+              Today, we work with a collective of 12 passionate artisans across
+              the India, Turkey and Canada each bringing their own stitching
+              style and cultural flair to our growing collection.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="products.html" class="btn-primary-custom">
+                <i class="fas fa-shopping-bag"></i> Shop the Collection
+              </a>
+              <a href="#artisans" class="btn-outline-custom">
+                <i class="fas fa-users"></i> Meet the Artisans
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ STATS STRIP ============================================================ -->
+    <div
+      style="background: var(--gradient-warm); padding: 50px 0"
+      aria-label="Key statistics"
+    >
+      <div class="container">
+        <div class="row g-3 text-center">
+          <div class="col-6 col-md-3 fade-up fade-up-delay-1">
+            <div
+              style="
+                font-family: var(--font-display);
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: var(--warm-brown-dark);
+              "
+            >
+              <span data-counter="1200" data-suffix="+">0+</span>
+            </div>
+            <div
+              style="
+                font-size: 0.82rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--text-medium);
+                margin-top: 0.3rem;
+              "
+            >
+              Happy Customers
+            </div>
+          </div>
+          <div class="col-6 col-md-3 fade-up fade-up-delay-2">
+            <div
+              style="
+                font-family: var(--font-display);
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: var(--dusty-pink-dark);
+              "
+            >
+              <span data-counter="48" data-suffix="+">0+</span>
+            </div>
+            <div
+              style="
+                font-size: 0.82rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--text-medium);
+                margin-top: 0.3rem;
+              "
+            >
+              Unique Designs
+            </div>
+          </div>
+          <div class="col-6 col-md-3 fade-up fade-up-delay-3">
+            <div
+              style="
+                font-family: var(--font-display);
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: var(--sage-dark);
+              "
+            >
+              <span data-counter="12" data-suffix="">0</span>
+            </div>
+            <div
+              style="
+                font-size: 0.82rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--text-medium);
+                margin-top: 0.3rem;
+              "
+            >
+              Artisans Worldwide
+            </div>
+          </div>
+          <div class="col-6 col-md-3 fade-up fade-up-delay-4">
+            <div
+              style="
+                font-family: var(--font-display);
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: var(--lavender-dark);
+              "
+            >
+              <span data-counter="5" data-suffix=" yrs">0</span>
+            </div>
+            <div
+              style="
+                font-size: 0.82rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--text-medium);
+                margin-top: 0.3rem;
+              "
+            >
+              Of Handmade Magic
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ MISSION & VALUES ============================================================ -->
+    <section class="section-wrapper bg-alt" aria-labelledby="missionTitle">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-badge fade-up">What We Believe</span>
+          <h2 class="section-title fade-up fade-up-delay-1" id="missionTitle">
+            Our Mission & Values
+          </h2>
+          <p class="section-subtitle fade-up fade-up-delay-2">
+            Every decision we make from the yarns we source to the artisans we
+            partner with is guided by these core values.
+          </p>
+        </header>
+
+        <div class="row g-4">
+          <div
+            class="col-md-6 col-lg-3 scale-in"
+            style="transition-delay: 0.05s"
+          >
+            <div class="values-card">
+              <div
+                class="values-icon-wrap"
+                style="background: rgba(232, 180, 184, 0.2)"
+              >
+                <i
+                  class="fas fa-hand-holding-heart"
+                  style="color: var(--dusty-pink-dark); font-size: 1.6rem"
+                ></i>
+              </div>
+              <h3 class="values-card-title">Handmade Always</h3>
+              <p class="values-card-text">
+                We believe in the irreplaceable beauty of something made by
+                hand. Every stitch is placed with intention, care and artisanal
+                pride.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-3 scale-in"
+            style="transition-delay: 0.1s"
+          >
+            <div class="values-card">
+              <div
+                class="values-icon-wrap"
+                style="background: rgba(168, 184, 154, 0.2)"
+              >
+                <i
+                  class="fas fa-leaf"
+                  style="color: var(--sage-dark); font-size: 1.6rem"
+                ></i>
+              </div>
+              <h3 class="values-card-title">Sustainability First</h3>
+              <p class="values-card-text">
+                We source only organic, ethically-produced natural fibres —
+                wool, cotton and plant-based yarns that are as kind to the earth
+                as they are to your skin.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-3 scale-in"
+            style="transition-delay: 0.15s"
+          >
+            <div class="values-card">
+              <div
+                class="values-icon-wrap"
+                style="background: rgba(184, 169, 201, 0.2)"
+              >
+                <i
+                  class="fas fa-users"
+                  style="color: var(--lavender-dark); font-size: 1.6rem"
+                ></i>
+              </div>
+              <h3 class="values-card-title">Fair Artisan Pay</h3>
+              <p class="values-card-text">
+                Our artisans are paid fairly and transparently. We believe the
+                people who pour their heart into every piece deserve to be
+                valued accordingly.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-3 scale-in"
+            style="transition-delay: 0.2s"
+          >
+            <div class="values-card">
+              <div
+                class="values-icon-wrap"
+                style="background: rgba(201, 149, 108, 0.2)"
+              >
+                <i
+                  class="fas fa-infinity"
+                  style="color: var(--caramel); font-size: 1.6rem"
+                ></i>
+              </div>
+              <h3 class="values-card-title">Timeless Quality</h3>
+              <p class="values-card-text">
+                We design pieces to last years, not seasons. Slow fashion means
+                creating things worth keeping and worth passing on.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ SKILLS / CRAFTSMANSHIP ============================================================ -->
+    <section class="section-wrapper" aria-labelledby="craftTitle">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6 fade-up">
+            <span class="section-badge">Craftsmanship</span>
+            <h2 class="section-title" id="craftTitle">
+              Where Art Meets<br />
+              <span style="color: var(--dusty-pink-dark); font-style: italic"
+                >Impeccable Craft</span
+              >
+            </h2>
+            <p
+              style="
+                color: var(--text-secondary);
+                line-height: 1.9;
+                margin-bottom: 2rem;
+              "
+            >
+              Every product in our collection is made using traditional crochet
+              techniques passed down through generations elevated with modern
+              design sensibility. We obsess over every detail so you never have
+              to.
+            </p>
+
+            <div id="skillBarsWrap">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <div class="col-lg-6 fade-up fade-up-delay-2">
+            <div class="row g-3">
+              <div class="col-6">
+                <img
+                  src="image/artican-handwork.jpg"
+                  alt="Artisan's hands working on a crochet project"
+                  style="
+                    width: 100%;
+                    height: 220px;
+                    object-fit: cover;
+                    border-radius: var(--radius-lg);
+                    box-shadow: var(--shadow-md);
+                  "
+                  loading="lazy"
+                />
+              </div>
+              <div class="col-6">
+                <img
+                  src="image/story1.jpg"
+                  alt="Colourful yarn skeins in pastel colours"
+                  style="
+                    width: 100%;
+                    height: 220px;
+                    object-fit: cover;
+                    border-radius: var(--radius-lg);
+                    box-shadow: var(--shadow-md);
+                  "
+                  loading="lazy"
+                />
+              </div>
+              <div class="col-12">
+                <img
+                  src="image/cardigan1.png"
+                  alt="Finished crochet cardigan — the product of skilled artisanship"
+                  style="
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    border-radius: var(--radius-lg);
+                    box-shadow: var(--shadow-md);
+                  "
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ OUR PROCESS ============================================================ -->
+    <section class="section-wrapper bg-alt" aria-labelledby="processTitle">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-badge fade-up">From Yarn to You</span>
+          <h2 class="section-title fade-up fade-up-delay-1" id="processTitle">
+            The Making Process
+          </h2>
+          <p class="section-subtitle fade-up fade-up-delay-2">
+            Each Cozy Threads piece goes through a careful, love filled journey
+            before it reaches your door.
+          </p>
+        </header>
+
+        <div class="row g-4">
+          <!-- Step 1 -->
+          <div class="col-sm-6 col-md-3 fade-up fade-up-delay-1">
+            <div style="text-align: center; padding: 1.5rem 1rem">
+              <div
+                style="
+                  width: 60px;
+                  height: 60px;
+                  border-radius: 50%;
+                  background: var(--gradient-pink);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto 1rem;
+                  font-size: 1.3rem;
+                  color: #fff;
+                  box-shadow: var(--shadow-pink);
+                  font-family: var(--font-display);
+                  font-weight: 700;
+                "
+                aria-hidden="true"
+              >
+                1
+              </div>
+              <h3
+                style="
+                  font-family: var(--font-display);
+                  font-size: 1.05rem;
+                  font-weight: 600;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Source Yarns
+              </h3>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  line-height: 1.6;
+                "
+              >
+                We hand-select premium sustainable yarns from ethical suppliers
+                around the world.
+              </p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="col-sm-6 col-md-3 fade-up fade-up-delay-2">
+            <div style="text-align: center; padding: 1.5rem 1rem">
+              <div
+                style="
+                  width: 60px;
+                  height: 60px;
+                  border-radius: 50%;
+                  background: var(--gradient-sage);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto 1rem;
+                  font-size: 1.3rem;
+                  color: #fff;
+                  box-shadow: 0 8px 25px rgba(168, 184, 154, 0.4);
+                  font-family: var(--font-display);
+                  font-weight: 700;
+                "
+                aria-hidden="true"
+              >
+                2
+              </div>
+              <h3
+                style="
+                  font-family: var(--font-display);
+                  font-size: 1.05rem;
+                  font-weight: 600;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Design & Pattern
+              </h3>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  line-height: 1.6;
+                "
+              >
+                Our designers craft original patterns combining traditional
+                techniques with modern aesthetics.
+              </p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="col-sm-6 col-md-3 fade-up fade-up-delay-3">
+            <div style="text-align: center; padding: 1.5rem 1rem">
+              <div
+                style="
+                  width: 60px;
+                  height: 60px;
+                  border-radius: 50%;
+                  background: var(--gradient-lavender);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto 1rem;
+                  font-size: 1.3rem;
+                  color: #fff;
+                  box-shadow: 0 8px 25px rgba(184, 169, 201, 0.4);
+                  font-family: var(--font-display);
+                  font-weight: 700;
+                "
+                aria-hidden="true"
+              >
+                3
+              </div>
+              <h3
+                style="
+                  font-family: var(--font-display);
+                  font-size: 1.05rem;
+                  font-weight: 600;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Handcraft
+              </h3>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  line-height: 1.6;
+                "
+              >
+                Every piece is crocheted by hand by one of our skilled artisans
+                stitch by careful stitch.
+              </p>
+            </div>
+          </div>
+          <!-- Step 4 -->
+          <div class="col-sm-6 col-md-3 fade-up fade-up-delay-4">
+            <div style="text-align: center; padding: 1.5rem 1rem">
+              <div
+                style="
+                  width: 60px;
+                  height: 60px;
+                  border-radius: 50%;
+                  background: var(--gradient-brown);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto 1rem;
+                  font-size: 1.3rem;
+                  color: #fff;
+                  box-shadow: 0 8px 25px rgba(201, 149, 108, 0.4);
+                  font-family: var(--font-display);
+                  font-weight: 700;
+                "
+                aria-hidden="true"
+              >
+                4
+              </div>
+              <h3
+                style="
+                  font-family: var(--font-display);
+                  font-size: 1.05rem;
+                  font-weight: 600;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Lovingly Packaged
+              </h3>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  line-height: 1.6;
+                "
+              >
+                Each order is wrapped in tissue paper, tied with ribbon and
+                includes a handwritten note.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ MEET THE ARTISANS ============================================================ -->
+    <section
+      class="section-wrapper"
+      id="artisans"
+      aria-labelledby="artisansTitle"
+    >
+      <div class="container">
+        <header class="section-header">
+          <span class="section-badge fade-up">The Makers</span>
+          <h2 class="section-title fade-up fade-up-delay-1" id="artisansTitle">
+            Meet Our Artisans
+          </h2>
+          <p class="section-subtitle fade-up fade-up-delay-2">
+            The talented, passionate creators behind every Cozy Threads piece.
+            They put their heart and soul into each stitch.
+          </p>
+        </header>
+
+        <div class="row g-4">
+          <!-- Artisan 1 -->
+          <div class="col-md-4 scale-in" style="transition-delay: 0.05s">
+            <article class="artisan-card">
+              <div class="artisan-img-wrap">
+                <img
+                  src="image/Tam.jpg"
+                  alt="Portrait of Tamana Nijrabi, founder and lead designer"
+                  class="artisan-img"
+                  loading="lazy"
+                />
+                <div class="artisan-img-overlay"></div>
+              </div>
+              <div class="artisan-body">
+                <h3 class="artisan-name">Tamana Nijrabi</h3>
+                <p class="artisan-role">Founder & Lead Designer</p>
+                <p class="artisan-bio">
+                  A former textile artist , Tamana started Cozy Threads to make
+                  artisan crochet accessible to everyone. She leads design and
+                  sources all our yarns personally.
+                </p>
+                <div class="artisan-social" aria-label="Tamana's social media">
+                  <a href="#" aria-label="Tamana on Instagram" title="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a href="#" aria-label="Tamana on Pinterest" title="Pinterest"
+                    ><i class="fab fa-pinterest-p"></i
+                  ></a>
+                  <a href="#" aria-label="Tamana on TikTok" title="TikTok"
+                    ><i class="fab fa-tiktok"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Artisan 2 -->
+          <div class="col-md-4 scale-in" style="transition-delay: 0.1s">
+            <article class="artisan-card">
+              <div class="artisan-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=80"
+                  alt="Portrait of Lailuma, senior crochet artisan"
+                  class="artisan-img"
+                  loading="lazy"
+                />
+                <div class="artisan-img-overlay"></div>
+              </div>
+              <div class="artisan-body">
+                <h3 class="artisan-name">Lailuma</h3>
+                <p class="artisan-role">Senior Crochet Artisan</p>
+                <p class="artisan-bio">
+                  Based in Ankara, Lailuma brings the warmth of Afghani craft
+                  traditions to every piece she creates. She specialises in
+                  intricate lacework and our beloved throw blanket collection.
+                </p>
+                <div class="artisan-social" aria-label="Lailuma's social media">
+                  <a
+                    href="#"
+                    aria-label="Lailuma on Instagram"
+                    title="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a
+                    href="#"
+                    aria-label="Lailuma on Pinterest"
+                    title="Pinterest"
+                    ><i class="fab fa-pinterest-p"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Artisan 3 -->
+          <div class="col-md-4 scale-in" style="transition-delay: 0.15s">
+            <article class="artisan-card">
+              <div class="artisan-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80"
+                  alt="Portrait of Lida Ahmady, accessories and bag specialist"
+                  class="artisan-img"
+                  loading="lazy"
+                />
+                <div class="artisan-img-overlay"></div>
+              </div>
+              <div class="artisan-body">
+                <h3 class="artisan-name">Lida Ahmady</h3>
+                <p class="artisan-role">Accessories & Bag Specialist</p>
+                <p class="artisan-bio">
+                  Hailing from Canada, Lida's bold, editorial eye shapes our
+                  bags and accessories line. She's obsessed with texture and
+                  structure and her Boho Mini Bag is our forever best seller.
+                </p>
+                <div class="artisan-social" aria-label="Lida's social media">
+                  <a href="#" aria-label="Lida on Instagram" title="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a href="#" aria-label="Lida on TikTok" title="TikTok"
+                    ><i class="fab fa-tiktok"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Join CTA -->
+        <div class="text-center mt-5 fade-up">
+          <div class="glass-card d-inline-block p-4" style="max-width: 550px">
+            <i
+              class="fas fa-yin-yang fa-2x text-pink mb-3"
+              aria-hidden="true"
+            ></i>
+            <h3
+              style="
+                font-family: var(--font-display);
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-bottom: 0.75rem;
+              "
+            >
+              Are You a Crochet Artisan?
+            </h3>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 0.9rem;
+                margin-bottom: 1.2rem;
+              "
+            >
+              We're always looking for talented makers to join our collective.
+              Sell your creations through Cozy Threads and reach customers who
+              truly value handmade art.
+            </p>
+            <a
+              href="mailto:hello@cozythreads.com?subject=Artisan Application"
+              class="btn-primary-custom"
+            >
+              <i class="fas fa-paper-plane me-1"></i> Apply to Join
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ NEWSLETTER (reused) ============================================================ -->
+    <section
+      id="newsletter"
+      class="section-wrapper"
+      aria-labelledby="aboutNewsletterTitle"
+    >
+      <div class="container">
+        <div class="text-center position-relative" style="z-index: 1">
+          <span class="section-badge fade-up">Stay Connected</span>
+          <h2
+            class="section-title fade-up fade-up-delay-1"
+            id="aboutNewsletterTitle"
+          >
+            Join Our Cozy Community
+          </h2>
+          <p class="section-subtitle fade-up fade-up-delay-2">
+            Get exclusive patterns, new arrivals and artisan stories delivered
+            to your inbox.
+          </p>
+          <form id="newsletterForm" class="fade-up fade-up-delay-3" novalidate>
+            <div class="newsletter-form-wrap">
+              <label for="newsletterEmail" class="visually-hidden"
+                >Your email address</label
+              >
+              <input
+                type="email"
+                id="newsletterEmail"
+                class="newsletter-input"
+                placeholder="your@email.com"
+                required
+                autocomplete="email"
+              />
+              <button type="submit" class="btn-primary-custom">
+                <i class="fas fa-paper-plane me-1"></i>Subscribe
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ FOOTER ============================================================ -->
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-12 col-md-4">
+            <span class="footer-brand-name">Cozy Threads</span>
+            <p class="footer-brand-desc">
+              Lovingly handcrafted crochet creations made with premium
+              sustainable yarns. Each piece tells a story of patience, love and
+              artisan skill.
+            </p>
+            <div
+              class="footer-social"
+              role="list"
+              aria-label="Social media links"
+            >
+              <a
+                href="#"
+                class="social-btn"
+                aria-label="Instagram"
+                title="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="#"
+                class="social-btn"
+                aria-label="Pinterest"
+                title="Pinterest"
+                ><i class="fab fa-pinterest-p"></i
+              ></a>
+              <a href="#" class="social-btn" aria-label="TikTok" title="TikTok"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+              <a
+                href="#"
+                class="social-btn"
+                aria-label="Facebook"
+                title="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="#"
+                class="social-btn"
+                aria-label="YouTube"
+                title="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-6 col-md-2">
+            <h3 class="footer-title">Shop</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="products.html">Clothing</a></li>
+              <li><a href="products.html">Bags & Totes</a></li>
+              <li><a href="products.html">Home Décor</a></li>
+              <li><a href="products.html">Accessories</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-2">
+            <h3 class="footer-title">Info</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="about.html">Our Story</a></li>
+              <li><a href="#">Sustainability</a></li>
+              <li><a href="#">Size Guide</a></li>
+              <li><a href="#">Care Instructions</a></li>
+              <li><a href="#">Gift Cards</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-4">
+            <h3 class="footer-title">Get in Touch</h3>
+            <address style="font-style: normal">
+              <div class="footer-contact-item">
+                <i class="fas fa-envelope"></i
+                ><span>hello@cozythreads.com</span>
+              </div>
+              <div class="footer-contact-item">
+                <i class="fas fa-phone-alt"></i><span>+91 123 234-5678</span>
+              </div>
+              <div class="footer-contact-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span>42 Yarn Lane, India, OR 97201</span>
+              </div>
+            </address>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="footer-bottom">
+          <p class="footer-bottom-text">
+            © 2026 <a href="index.html">Cozy Threads</a>. Made with
+            <i
+              class="fas fa-heart"
+              style="color: var(--dusty-pink)"
+              aria-label="love"
+            ></i>
+            & lots of yarn.
+          </p>
+          <div class="footer-payments" aria-label="Accepted payment methods">
+            <span class="payment-icon"><i class="fab fa-cc-visa"></i></span>
+            <span class="payment-icon"
+              ><i class="fab fa-cc-mastercard"></i
+            ></span>
+            <span class="payment-icon"><i class="fab fa-cc-paypal"></i></span>
+            <span class="payment-icon"
+              ><i class="fab fa-cc-apple-pay"></i
+            ></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Quick View Modal (reused) -->
+    <div
+      class="modal fade"
+      id="quickViewModal"
+      tabindex="-1"
+      aria-labelledby="quickViewModalLabel"
+      aria-hidden="true"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="quickViewModalLabel">
+              <i class="fas fa-eye me-2 text-pink"></i>Quick View
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <div class="row g-4">
+              <div class="col-md-5">
+                <img id="qv-img" src="" alt="" class="modal-product-img" />
+              </div>
+              <div class="col-md-7">
+                <span id="qv-badge"></span>
+                <p id="qv-category" class="product-category mt-2"></p>
+                <h3 id="qv-name" class="modal-product-name"></h3>
+                <div class="product-rating mb-1">
+                  <span id="qv-stars" class="stars"></span
+                  ><span id="qv-reviews" class="rating-count"></span>
+                </div>
+                <div class="mb-3">
+                  <span id="qv-price" class="modal-product-price"></span
+                  ><span
+                    id="qv-old-price"
+                    class="product-price-old ms-2"
+                  ></span>
+                </div>
+                <p id="qv-desc" class="modal-product-desc"></p>
+                <div class="modal-meta">
+                  <span class="meta-chip"
+                    ><i class="fas fa-palette me-1"></i
+                    ><span id="qv-colors"></span
+                  ></span>
+                  <span class="meta-chip"
+                    ><i class="fas fa-tags me-1"></i
+                    ><span id="qv-material"></span
+                  ></span>
+                </div>
+                <div class="d-flex gap-2 mt-3 flex-wrap">
+                  <button
+                    id="qv-add-cart"
+                    class="btn-primary-custom flex-grow-1"
+                    data-bs-dismiss="modal"
+                  >
+                    <i class="fas fa-shopping-bag me-1"></i>Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      id="darkModeFab"
+      class="dark-mode-fab"
+      aria-label="Toggle dark mode"
+    >
+      <i class="fas fa-moon"></i>
+    </button>
+    <button id="backToTop" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

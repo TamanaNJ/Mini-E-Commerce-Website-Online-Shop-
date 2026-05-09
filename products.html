@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shop handmade crochet products at Cozy Threads — cardigans, tote bags, throw blankets, hats and more. Filter by category, search and sort with ease."
+    />
+    <title>Shop — Cozy Threads</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Page Loader -->
+    <div
+      id="pageLoader"
+      style="
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: var(--cream);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s ease;
+      "
+    >
+      <div
+        style="
+          font-family: &quot;Dancing Script&quot;, cursive;
+          font-size: 2.5rem;
+          color: var(--warm-brown-dark);
+          margin-bottom: 1rem;
+        "
+      >
+        Cozy Threads
+      </div>
+      <div style="display: flex; gap: 8px">
+        <span
+          style="
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--dusty-pink);
+            animation: loaderDot 1.2s ease-in-out infinite 0s;
+            display: block;
+          "
+        ></span>
+        <span
+          style="
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--sage);
+            animation: loaderDot 1.2s ease-in-out infinite 0.2s;
+            display: block;
+          "
+        ></span>
+        <span
+          style="
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--lavender);
+            animation: loaderDot 1.2s ease-in-out infinite 0.4s;
+            display: block;
+          "
+        ></span>
+      </div>
+      <style>
+        @keyframes loaderDot {
+          0%,
+          80%,
+          100% {
+            transform: scale(0.6);
+            opacity: 0.4;
+          }
+          40% {
+            transform: scale(1.2);
+            opacity: 1;
+          }
+        }
+      </style>
+    </div>
+
+    <!-- Toast Container -->
+    <div
+      id="toastContainer"
+      class="toast-container-custom"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    <!-- ================================================================
+       NAVBAR
+       ================================================================ -->
+    <nav
+      id="mainNavbar"
+      class="navbar navbar-expand-lg fixed-top"
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="index.html"
+          aria-label="Cozy Threads — Home"
+        >
+          <div class="brand-logo-icon" aria-hidden="true">
+            <i class="fas fa-yin-yang"></i>
+          </div>
+          <div>
+            <span class="brand-name">Cozy Threads</span>
+            <span class="brand-tagline">Handmade with love</span>
+          </div>
+        </a>
+
+        <div class="d-flex align-items-center gap-2 d-lg-none">
+          <a
+            href="cart.html"
+            class="nav-icon-btn position-relative"
+            aria-label="Shopping cart"
+          >
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge cart-count" style="display: none">0</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav mx-auto gap-1" role="list">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Our Story</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                href="products.html"
+                aria-current="page"
+                >Shop</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+            <button
+              id="navThemeToggle"
+              class="nav-icon-btn"
+              title="Toggle dark/light mode"
+              aria-label="Toggle dark mode"
+            >
+              <i class="fas fa-moon"></i>
+            </button>
+            <a
+              href="cart.html"
+              class="nav-icon-btn position-relative d-none d-lg-flex"
+              aria-label="Shopping cart"
+            >
+              <i class="fas fa-shopping-bag"></i>
+              <span class="cart-badge cart-count" style="display: none">0</span>
+            </a>
+            <a
+              href="cart.html"
+              class="btn-primary-custom ms-2 d-none d-lg-inline-flex"
+            >
+              <i class="fas fa-shopping-bag"></i> My Cart
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================================================================
+       PRODUCTS HERO
+       ================================================================ -->
+    <section class="products-hero" aria-labelledby="shopHeroTitle">
+      <!-- Blobs -->
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          overflow: hidden;
+        "
+        aria-hidden="true"
+      >
+        <div
+          style="
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(
+              circle,
+              rgba(232, 180, 184, 0.4),
+              transparent
+            );
+            top: -80px;
+            right: -60px;
+            filter: blur(55px);
+            animation: floatBlob 8s ease-in-out infinite;
+          "
+        ></div>
+        <div
+          style="
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(
+              circle,
+              rgba(217, 208, 232, 0.35),
+              transparent
+            );
+            bottom: -60px;
+            left: -40px;
+            filter: blur(55px);
+            animation: floatBlob 10s ease-in-out infinite reverse;
+          "
+        ></div>
+      </div>
+
+      <div class="container position-relative" style="z-index: 1">
+        <span class="section-badge fade-up">Handmade with Love</span>
+        <h1
+          class="section-title fade-up fade-up-delay-1"
+          id="shopHeroTitle"
+          style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 0.75rem"
+        >
+          Shop the Collection
+        </h1>
+        <p
+          class="fade-up fade-up-delay-2"
+          style="
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 500px;
+            margin: 0 auto 1.75rem;
+          "
+        >
+          Every piece is one-of-a-kind, hand crocheted by our artisans using
+          premium sustainable yarns.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="search-bar-wrap fade-up fade-up-delay-3">
+          <i class="fas fa-search search-icon" aria-hidden="true"></i>
+          <input
+            type="search"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search products… (e.g. cardigan, tote, lavender)"
+            aria-label="Search products"
+            autocomplete="off"
+          />
+          <button
+            id="searchClear"
+            aria-label="Clear search"
+            style="
+              position: absolute;
+              right: 1rem;
+              top: 50%;
+              transform: translateY(-50%);
+              background: none;
+              border: none;
+              color: var(--text-light);
+              cursor: pointer;
+              display: none;
+              align-items: center;
+              font-size: 0.9rem;
+            "
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <!-- Breadcrumb -->
+        <div
+          class="page-hero-breadcrumb fade-up fade-up-delay-4"
+          aria-label="Breadcrumb navigation"
+        >
+          <a href="index.html">Home</a>
+          <span class="sep" aria-hidden="true">›</span>
+          <span aria-current="page">Shop</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+       MAIN SHOP SECTION
+       ================================================================ -->
+    <main class="section-wrapper" id="shopMain">
+      <div class="container">
+        <!-- Filter Bar -->
+        <div
+          class="filter-bar fade-up"
+          role="toolbar"
+          aria-label="Product filters"
+        >
+          <span class="filter-label" aria-hidden="true">
+            <i class="fas fa-filter me-1"></i>Filter:
+          </span>
+
+          <div
+            role="group"
+            aria-label="Filter by category"
+            style="display: flex; gap: 0.5rem; flex-wrap: wrap"
+          >
+            <button
+              class="filter-btn active"
+              data-cat="all"
+              onclick="setCategory('all')"
+              aria-pressed="true"
+              aria-label="Show all products"
+            >
+              All
+            </button>
+            <button
+              class="filter-btn"
+              data-cat="clothing"
+              onclick="setCategory('clothing')"
+              aria-pressed="false"
+              aria-label="Filter by clothing"
+            >
+              <i class="fas fa-tshirt me-1" aria-hidden="true"></i>Clothing
+            </button>
+            <button
+              class="filter-btn"
+              data-cat="bags"
+              onclick="setCategory('bags')"
+              aria-pressed="false"
+              aria-label="Filter by bags"
+            >
+              <i class="fas fa-shopping-bag me-1" aria-hidden="true"></i>Bags
+            </button>
+            <button
+              class="filter-btn"
+              data-cat="home"
+              onclick="setCategory('home')"
+              aria-pressed="false"
+              aria-label="Filter by home decor"
+            >
+              <i class="fas fa-home me-1" aria-hidden="true"></i>Home
+            </button>
+            <button
+              class="filter-btn"
+              data-cat="accessories"
+              onclick="setCategory('accessories')"
+              aria-pressed="false"
+              aria-label="Filter by accessories"
+            >
+              <i class="fas fa-hat-cowboy me-1" aria-hidden="true"></i
+              >Accessories
+            </button>
+          </div>
+
+          <div
+            style="
+              margin-left: auto;
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+              flex-wrap: wrap;
+            "
+          >
+            <!-- Sort -->
+            <label for="sortSelect" class="filter-label">
+              <i class="fas fa-sort me-1" aria-hidden="true"></i>Sort:
+            </label>
+            <select
+              id="sortSelect"
+              class="sort-select"
+              onchange="setSort(this.value)"
+              aria-label="Sort products"
+            >
+              <option value="default">Featured</option>
+              <option value="price-asc">Price: Low → High</option>
+              <option value="price-desc">Price: High → Low</option>
+              <option value="rating">Top Rated</option>
+              <option value="newest">Newest First</option>
+            </select>
+
+            <!-- Product count -->
+            <span
+              style="
+                font-size: 0.8rem;
+                color: var(--text-light);
+                white-space: nowrap;
+              "
+            >
+              <span id="productCount">12</span> products
+            </span>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div
+          class="row g-4"
+          id="shopProductsGrid"
+          role="list"
+          aria-label="Product listings"
+          aria-live="polite"
+          aria-atomic="false"
+        >
+          <!-- Dynamically rendered by JS -->
+        </div>
+
+        <!-- Load More (decorative — all products shown) -->
+        <div class="text-center mt-5 fade-up" id="loadMoreWrap">
+          <p
+            style="
+              color: var(--text-light);
+              font-size: 0.85rem;
+              margin-bottom: 1rem;
+            "
+          >
+            <i class="fas fa-check-circle text-sage me-1"></i>
+            Showing all handmade products
+          </p>
+          <a
+            href="#shopMain"
+            class="btn-outline-custom"
+            onclick="
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              return false;
+            "
+          >
+            <i class="fas fa-arrow-up me-1"></i> Back to Top
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- ================================================================
+       TRUST BAR
+       ================================================================ -->
+    <section
+      style="
+        background: var(--bg-secondary);
+        padding: 40px 0;
+        border-top: 1px solid var(--border-light);
+      "
+      aria-label="Shopping guarantees"
+    >
+      <div class="container">
+        <div class="row g-3 text-center">
+          <div class="col-6 col-md-3 fade-up fade-up-delay-1">
+            <i class="fas fa-truck fa-lg text-pink mb-2" aria-hidden="true"></i>
+            <div
+              style="
+                font-size: 0.88rem;
+                font-weight: 600;
+                color: var(--text-primary);
+              "
+            >
+              Free Shipping $75+
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-light)">
+              Within the US
+            </div>
+          </div>
+          <div class="col-6 col-md-3 fade-up fade-up-delay-2">
+            <i
+              class="fas fa-undo-alt fa-lg text-sage mb-2"
+              aria-hidden="true"
+            ></i>
+            <div
+              style="
+                font-size: 0.88rem;
+                font-weight: 600;
+                color: var(--text-primary);
+              "
+            >
+              30-Day Returns
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-light)">
+              Hassle-free policy
+            </div>
+          </div>
+          <div class="col-6 col-md-3 fade-up fade-up-delay-3">
+            <i class="fas fa-lock fa-lg text-lav mb-2" aria-hidden="true"></i>
+            <div
+              style="
+                font-size: 0.88rem;
+                font-weight: 600;
+                color: var(--text-primary);
+              "
+            >
+              Secure Checkout
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-light)">
+              256-bit SSL encrypted
+            </div>
+          </div>
+          <div class="col-6 col-md-3 fade-up fade-up-delay-4">
+            <i
+              class="fas fa-hand-holding-heart fa-lg text-brown mb-2"
+              aria-hidden="true"
+            ></i>
+            <div
+              style="
+                font-size: 0.88rem;
+                font-weight: 600;
+                color: var(--text-primary);
+              "
+            >
+              100% Handmade
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-light)">
+              By our artisans
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+       NEWSLETTER STRIP
+       ================================================================ -->
+    <section
+      id="newsletter"
+      style="padding: 60px 0"
+      aria-labelledby="shopNewsletterTitle"
+    >
+      <div class="container">
+        <div class="text-center position-relative" style="z-index: 1">
+          <h2
+            class="section-title fade-up"
+            id="shopNewsletterTitle"
+            style="font-size: 1.8rem"
+          >
+            Get 10% Off Your First Order
+          </h2>
+          <p
+            class="fade-up fade-up-delay-1"
+            style="
+              color: var(--text-secondary);
+              font-size: 0.9rem;
+              margin-bottom: 1.5rem;
+            "
+          >
+            Subscribe and unlock your welcome discount!
+          </p>
+          <form id="newsletterForm" class="fade-up fade-up-delay-2" novalidate>
+            <div class="newsletter-form-wrap">
+              <label for="newsletterEmail" class="visually-hidden"
+                >Your email address</label
+              >
+              <input
+                type="email"
+                id="newsletterEmail"
+                class="newsletter-input"
+                placeholder="your@email.com"
+                required
+                autocomplete="email"
+              />
+              <button type="submit" class="btn-primary-custom">
+                <i class="fas fa-gift me-1"></i>Claim 10% Off
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-12 col-md-4">
+            <span class="footer-brand-name">Cozy Threads</span>
+            <p class="footer-brand-desc">
+              Lovingly handcrafted crochet creations. Each piece tells a story
+              of patience, love and artisan skill.
+            </p>
+            <div
+              class="footer-social"
+              role="list"
+              aria-label="Social media links"
+            >
+              <a href="#" class="social-btn" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-btn" aria-label="Pinterest"
+                ><i class="fab fa-pinterest-p"></i
+              ></a>
+              <a href="#" class="social-btn" aria-label="TikTok"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+              <a href="#" class="social-btn" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-6 col-md-2">
+            <h3 class="footer-title">Shop</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="products.html">All Products</a></li>
+              <li>
+                <a
+                  href="#"
+                  onclick="
+                    setCategory('clothing');
+                    return false;
+                  "
+                  >Clothing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="
+                    setCategory('bags');
+                    return false;
+                  "
+                  >Bags & Totes</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="
+                    setCategory('home');
+                    return false;
+                  "
+                  >Home Décor</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="
+                    setCategory('accessories');
+                    return false;
+                  "
+                  >Accessories</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-2">
+            <h3 class="footer-title">Help</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="#">Shipping Info</a></li>
+              <li><a href="#">Returns</a></li>
+              <li><a href="#">Size Guide</a></li>
+              <li><a href="#">Care Instructions</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-4">
+            <h3 class="footer-title">Contact</h3>
+            <address style="font-style: normal">
+              <div class="footer-contact-item">
+                <i class="fas fa-envelope"></i
+                ><span>hello@cozythreads.com</span>
+              </div>
+              <div class="footer-contact-item">
+                <i class="fas fa-phone-alt"></i><span>+91 123 234-5678</span>
+              </div>
+              <div class="footer-contact-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span>42 Yarn Lane, India, OR 97201</span>
+              </div>
+            </address>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="footer-bottom">
+          <p class="footer-bottom-text">
+            © 2026 <a href="index.html">Cozy Threads</a>. Made with
+            <i
+              class="fas fa-heart"
+              style="color: var(--dusty-pink)"
+              aria-label="love"
+            ></i>
+            & lots of yarn.
+          </p>
+          <div class="footer-payments" aria-label="Accepted payment methods">
+            <span class="payment-icon"><i class="fab fa-cc-visa"></i></span>
+            <span class="payment-icon"
+              ><i class="fab fa-cc-mastercard"></i
+            ></span>
+            <span class="payment-icon"><i class="fab fa-cc-paypal"></i></span>
+            <span class="payment-icon"
+              ><i class="fab fa-cc-apple-pay"></i
+            ></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================================================================
+       QUICK VIEW MODAL
+       ================================================================ -->
+    <div
+      class="modal fade"
+      id="quickViewModal"
+      tabindex="-1"
+      aria-labelledby="quickViewModalLabel"
+      aria-hidden="true"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="quickViewModalLabel">
+              <i class="fas fa-eye me-2 text-pink"></i>Quick View
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-3 p-md-4">
+            <div class="row g-4">
+              <div class="col-md-5">
+                <img id="qv-img" src="" alt="" class="modal-product-img" />
+              </div>
+              <div class="col-md-7">
+                <span id="qv-badge"></span>
+                <p id="qv-category" class="product-category mt-2"></p>
+                <h3 id="qv-name" class="modal-product-name"></h3>
+                <div class="product-rating mb-1">
+                  <span id="qv-stars" class="stars"></span>
+                  <span id="qv-reviews" class="rating-count"></span>
+                </div>
+                <div class="mb-3">
+                  <span id="qv-price" class="modal-product-price"></span>
+                  <span id="qv-old-price" class="product-price-old ms-2"></span>
+                </div>
+                <p id="qv-desc" class="modal-product-desc"></p>
+                <div class="modal-meta">
+                  <span class="meta-chip"
+                    ><i class="fas fa-palette me-1"></i
+                    ><span id="qv-colors"></span
+                  ></span>
+                  <span class="meta-chip"
+                    ><i class="fas fa-tags me-1"></i
+                    ><span id="qv-material"></span
+                  ></span>
+                  <span class="meta-chip"
+                    ><i
+                      class="fas fa-check-circle me-1"
+                      style="color: var(--sage-dark)"
+                    ></i
+                    >In Stock</span
+                  >
+                </div>
+                <div class="d-flex gap-2 mt-3 flex-wrap">
+                  <button
+                    id="qv-add-cart"
+                    class="btn-primary-custom flex-grow-1"
+                    data-bs-dismiss="modal"
+                  >
+                    <i class="fas fa-shopping-bag me-1"></i>Add to Cart
+                  </button>
+                  <button class="btn-outline-custom" data-bs-dismiss="modal">
+                    <i class="fas fa-heart me-1"></i>Wishlist
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dark Mode FAB -->
+    <button
+      id="darkModeFab"
+      class="dark-mode-fab"
+      aria-label="Toggle dark mode"
+    >
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Back to Top -->
+    <button id="backToTop" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

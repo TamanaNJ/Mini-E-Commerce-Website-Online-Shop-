@@ -1,0 +1,1844 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cozy Threads — Luxurious handmade crochet products. Shop cardigans, tote bags, throws, hats and more. Each piece crafted with love."
+    />
+    <meta
+      name="keywords"
+      content="crochet, handmade, knit, boho, cardigan, tote bag, throw blanket, accessories"
+    />
+    <title>Cozy Threads — Handmade Crochet Boutique</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ============================================================
+       PAGE LOADER
+       ============================================================ -->
+    <div
+      id="pageLoader"
+      style="
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: var(--cream);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s ease;
+      "
+    >
+      <div
+        style="
+          font-family: &quot;Dancing Script&quot;, cursive;
+          font-size: 2.5rem;
+          color: var(--warm-brown-dark);
+          margin-bottom: 1rem;
+        "
+      >
+        Cozy Threads
+      </div>
+      <div style="display: flex; gap: 8px">
+        <span
+          style="
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--dusty-pink);
+            animation: loaderDot 1.2s ease-in-out infinite 0s;
+            display: block;
+          "
+        ></span>
+        <span
+          style="
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--sage);
+            animation: loaderDot 1.2s ease-in-out infinite 0.2s;
+            display: block;
+          "
+        ></span>
+        <span
+          style="
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--lavender);
+            animation: loaderDot 1.2s ease-in-out infinite 0.4s;
+            display: block;
+          "
+        ></span>
+      </div>
+      <style>
+        @keyframes loaderDot {
+          0%,
+          80%,
+          100% {
+            transform: scale(0.6);
+            opacity: 0.4;
+          }
+          40% {
+            transform: scale(1.2);
+            opacity: 1;
+          }
+        }
+      </style>
+    </div>
+
+    <!-- ============================================================
+       TOAST CONTAINER
+       ============================================================ -->
+    <div
+      id="toastContainer"
+      class="toast-container-custom"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+    <nav
+      id="mainNavbar"
+      class="navbar navbar-expand-lg fixed-top"
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <div class="container">
+        <!-- Brand -->
+        <a
+          class="navbar-brand"
+          href="index.html"
+          aria-label="Cozy Threads — Home"
+        >
+          <div class="brand-logo-icon" aria-hidden="true">
+            <i class="fas fa-yin-yang"></i>
+          </div>
+          <div>
+            <span class="brand-name">Cozy Threads</span>
+            <span class="brand-tagline">Handmade with love</span>
+          </div>
+        </a>
+
+        <!-- Mobile controls -->
+        <div class="d-flex align-items-center gap-2 d-lg-none">
+          <a
+            href="cart.html"
+            class="nav-icon-btn position-relative"
+            aria-label="Shopping cart"
+          >
+            <i class="fas fa-shopping-bag" id="cartNavIcon"></i>
+            <span class="cart-badge cart-count" style="display: none">0</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Nav links -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav mx-auto gap-1" role="list">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Our Story</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+            <button
+              id="navThemeToggle"
+              class="nav-icon-btn"
+              title="Toggle dark/light mode"
+              aria-label="Toggle dark mode"
+            >
+              <i class="fas fa-moon"></i>
+            </button>
+            <a
+              href="products.html"
+              class="nav-icon-btn"
+              title="Search products"
+              aria-label="Search"
+            >
+              <i class="fas fa-search"></i>
+            </a>
+            <a
+              href="cart.html"
+              class="nav-icon-btn position-relative d-none d-lg-flex"
+              aria-label="Shopping cart"
+            >
+              <i class="fas fa-shopping-bag" id="cartNavIcon"></i>
+              <span class="cart-badge cart-count" style="display: none">0</span>
+            </a>
+            <a
+              href="products.html"
+              class="btn-primary-custom ms-2 d-none d-lg-inline-flex"
+            >
+              <i class="fas fa-store"></i> Shop Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+    <section id="hero" aria-labelledby="heroTitle">
+      <div class="hero-bg-decoration" aria-hidden="true">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+      </div>
+
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <!-- Text -->
+          <div class="col-lg-6 hero-content">
+            <p class="hero-eyebrow" aria-hidden="true">
+              ✨ Handcrafted with love
+            </p>
+            <h1 class="hero-title" id="heroTitle">
+              Every Stitch Tells a<br />
+              <span class="highlight">Beautiful</span> Story of<br />
+              <span class="highlight-sage">Handmade</span> Art
+            </h1>
+            <p class="hero-description">
+              Discover one-of-a-kind crochet creations — from cozy cardigans and
+              boho bags to dreamy home décor. Each piece is lovingly crafted by
+              our artisans using premium, sustainable yarns.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="products.html" class="btn-primary-custom">
+                <i class="fas fa-shopping-bag"></i> Explore Collection
+              </a>
+              <a href="about.html" class="btn-outline-custom">
+                <i class="fas fa-heart"></i> Our Story
+              </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="hero-stats" role="list" aria-label="Shop statistics">
+              <div class="hero-stat" role="listitem">
+                <div
+                  class="hero-stat-number"
+                  data-counter="1200"
+                  data-suffix="+"
+                >
+                  0+
+                </div>
+                <div class="hero-stat-label">Happy Customers</div>
+              </div>
+              <div class="hero-stat" role="listitem">
+                <div class="hero-stat-number" data-counter="48" data-suffix="+">
+                  0+
+                </div>
+                <div class="hero-stat-label">Unique Designs</div>
+              </div>
+              <div class="hero-stat" role="listitem">
+                <div
+                  class="hero-stat-number"
+                  data-counter="100"
+                  data-suffix="%"
+                >
+                  0%
+                </div>
+                <div class="hero-stat-label">Handmade</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image -->
+          <div
+            class="col-lg-6 d-flex justify-content-center hero-image-container"
+          >
+            <div class="hero-main-img-wrap">
+              <img
+                src="image/cardigan1.png"
+                alt="Model wearing a beautiful hand-crocheted blush cardigan"
+                class="hero-main-img"
+                fetchpriority="high"
+              />
+
+              <!-- Floating badges -->
+              <div
+                class="hero-img-badge badge-top glass-card"
+                aria-hidden="true"
+              >
+                <div class="badge-icon"><i class="fas fa-star"></i></div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.85rem">
+                    4.9 / 5.0
+                  </div>
+                  <div style="font-size: 0.7rem; color: var(--text-light)">
+                    200+ Reviews
+                  </div>
+                </div>
+              </div>
+              <div
+                class="hero-img-badge badge-bottom glass-card"
+                aria-hidden="true"
+              >
+                <div
+                  class="badge-icon"
+                  style="background: var(--gradient-sage)"
+                >
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.85rem">
+                    Eco-Friendly
+                  </div>
+                  <div style="font-size: 0.7rem; color: var(--text-light)">
+                    100% Sustainable
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div
+        style="
+          position: absolute;
+          bottom: 2rem;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 6px;
+          animation: yarnFloat 2s ease-in-out infinite;
+        "
+        aria-hidden="true"
+      >
+        <span
+          style="
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            font-family: var(--font-body);
+          "
+          >Scroll</span
+        >
+        <i
+          class="fas fa-chevron-down"
+          style="color: var(--dusty-pink); font-size: 0.9rem"
+        ></i>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       ANNOUNCEMENT STRIP
+       ============================================================ -->
+    <div
+      style="
+        background: var(--gradient-pink);
+        padding: 0.6rem 0;
+        overflow: hidden;
+      "
+      aria-label="Announcements"
+    >
+      <div
+        style="
+          display: flex;
+          gap: 3rem;
+          animation: marqueeScroll 22s linear infinite;
+          white-space: nowrap;
+          width: max-content;
+        "
+      >
+        <style>
+          @keyframes marqueeScroll {
+            from {
+              transform: translateX(0);
+            }
+            to {
+              transform: translateX(-50%);
+            }
+          }
+        </style>
+        <!-- Duplicated for seamless loop -->
+        <span
+          style="
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          "
+        >
+          <i class="fas fa-truck"></i> Free shipping on orders over $75
+        </span>
+        <span
+          style="
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          "
+        >
+          <i class="fas fa-leaf"></i> 100% Handmade & Sustainable
+        </span>
+        <span
+          style="
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          "
+        >
+          <i class="fas fa-gift"></i> Use code COZY10 for 10% off
+        </span>
+        <span
+          style="
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          "
+        >
+          <i class="fas fa-heart"></i> Made with love, one stitch at a time
+        </span>
+        <span
+          style="
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          "
+        >
+          <i class="fas fa-truck"></i> Free shipping on orders over $75
+        </span>
+        <span
+          style="
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          "
+        >
+          <i class="fas fa-leaf"></i> 100% Handmade & Sustainable
+        </span>
+        <span
+          style="
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          "
+        >
+          <i class="fas fa-gift"></i> Use code COZY10 for 10% off
+        </span>
+        <span
+          style="
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          "
+        >
+          <i class="fas fa-heart"></i> Made with love, one stitch at a time
+        </span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       CATEGORIES SECTION
+       ============================================================ -->
+    <section class="section-wrapper" aria-labelledby="categoriesTitle">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-badge fade-up">Browse by Category</span>
+          <h2
+            class="section-title fade-up fade-up-delay-1"
+            id="categoriesTitle"
+          >
+            What Are You Looking For?
+          </h2>
+          <p class="section-subtitle fade-up fade-up-delay-2">
+            From cozy wearables to stunning home decor explore our hand crafted
+            collections.
+          </p>
+        </header>
+        <div
+          class="row g-3"
+          id="categoriesGrid"
+          role="list"
+          aria-label="Product categories"
+        >
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       FEATURED PRODUCTS SECTION
+       ============================================================ -->
+    <section class="section-wrapper bg-alt" aria-labelledby="featuredTitle">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-badge fade-up">Handpicked for You</span>
+          <h2 class="section-title fade-up fade-up-delay-1" id="featuredTitle">
+            Featured Creations
+          </h2>
+          <p class="section-subtitle fade-up fade-up-delay-2">
+            Our most loved, best selling handmade pieces each crafted with
+            exceptional care and premium yarns.
+          </p>
+        </header>
+
+        <div
+          class="row g-4"
+          id="featuredProductsGrid"
+          role="list"
+          aria-label="Featured products"
+        >
+          <!-- Rendered by JS -->
+        </div>
+
+        <div class="text-center mt-5 fade-up">
+          <a href="products.html" class="btn-primary-custom">
+            <i class="fas fa-store me-2"></i>View All Products
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       PROMO BANNER (carousel)
+       ============================================================ -->
+    <section
+      class="section-wrapper"
+      style="padding: 60px 0"
+      aria-label="Promotions"
+    >
+      <div class="container">
+        <div
+          id="heroCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+          aria-label="Promotional banners"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#heroCarousel"
+              data-bs-slide-to="0"
+              class="active"
+              aria-label="Slide 1"
+              aria-current="true"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#heroCarousel"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#heroCarousel"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div
+            class="carousel-inner"
+            style="border-radius: var(--radius-xl); overflow: hidden"
+          >
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+              <div
+                style="
+                  background: var(--gradient-warm);
+                  padding: 60px 40px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  gap: 2rem;
+                  flex-wrap: wrap;
+                  min-height: 280px;
+                  border-radius: var(--radius-xl);
+                "
+              >
+                <div>
+                  <p
+                    style="
+                      font-family: var(--font-script);
+                      font-size: 1.4rem;
+                      color: var(--dusty-pink-dark);
+                      margin-bottom: 0.5rem;
+                    "
+                  >
+                    New Arrivals
+                  </p>
+                  <h3
+                    style="
+                      font-family: var(--font-display);
+                      font-size: 2rem;
+                      font-weight: 700;
+                      margin-bottom: 1rem;
+                      color: var(--text-dark);
+                    "
+                  >
+                    Spring Crochet<br />Collection 2026
+                  </h3>
+                  <a
+                    href="products.html?category=clothing"
+                    class="btn-primary-custom"
+                  >
+                    <i class="fas fa-arrow-right"></i> Shop Now
+                  </a>
+                </div>
+                <img
+                  src="image/croptop.png"
+                  alt="Spring crochet clothing collection"
+                  style="
+                    width: 220px;
+                    height: 200px;
+                    object-fit: cover;
+                    border-radius: var(--radius-lg);
+                    box-shadow: var(--shadow-md);
+                  "
+                />
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <div
+                style="
+                  background: linear-gradient(135deg, #e8f0e0, #d0dfc8);
+                  padding: 60px 40px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  gap: 2rem;
+                  flex-wrap: wrap;
+                  min-height: 280px;
+                  border-radius: var(--radius-xl);
+                "
+              >
+                <div>
+                  <p
+                    style="
+                      font-family: var(--font-script);
+                      font-size: 1.4rem;
+                      color: var(--sage-dark);
+                      margin-bottom: 0.5rem;
+                    "
+                  >
+                    Cozy Living
+                  </p>
+                  <h3
+                    style="
+                      font-family: var(--font-display);
+                      font-size: 2rem;
+                      font-weight: 700;
+                      margin-bottom: 1rem;
+                      color: var(--text-dark);
+                    "
+                  >
+                    Home Decor<br />That Feels Like a Hug
+                  </h3>
+                  <a href="products.html?category=home" class="btn-sage">
+                    <i class="fas fa-home"></i> Explore Home
+                  </a>
+                </div>
+                <img
+                  src="image/Blanket.png"
+                  alt="Cozy crochet home decor throw blanket"
+                  style="
+                    width: 220px;
+                    height: 200px;
+                    object-fit: cover;
+                    border-radius: var(--radius-lg);
+                    box-shadow: var(--shadow-md);
+                  "
+                />
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+              <div
+                style="
+                  background: linear-gradient(135deg, #ede0f5, #d9d0e8);
+                  padding: 60px 40px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  gap: 2rem;
+                  flex-wrap: wrap;
+                  min-height: 280px;
+                  border-radius: var(--radius-xl);
+                "
+              >
+                <div>
+                  <p
+                    style="
+                      font-family: var(--font-script);
+                      font-size: 1.4rem;
+                      color: var(--lavender-dark);
+                      margin-bottom: 0.5rem;
+                    "
+                  >
+                    Special Offer
+                  </p>
+                  <h3
+                    style="
+                      font-family: var(--font-display);
+                      font-size: 2rem;
+                      font-weight: 700;
+                      margin-bottom: 0.5rem;
+                      color: var(--text-dark);
+                    "
+                  >
+                    Use Code<br />
+                    <span
+                      style="color: var(--lavender-dark); font-style: italic"
+                      >CROCHET20</span
+                    >
+                  </h3>
+                  <p
+                    style="
+                      margin-bottom: 1rem;
+                      color: var(--text-medium);
+                      font-size: 0.92rem;
+                    "
+                  >
+                    20% off your entire order today only!
+                  </p>
+                  <a href="products.html" class="btn-outline-custom">
+                    <i class="fas fa-tag"></i> Claim Offer
+                  </a>
+                </div>
+                <img
+                  src="image/smallBag.png"
+                  alt="Crochet bags sale promotion"
+                  style="
+                    width: 220px;
+                    height: 200px;
+                    object-fit: cover;
+                    border-radius: var(--radius-lg);
+                    box-shadow: var(--shadow-md);
+                  "
+                />
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide="prev"
+            aria-label="Previous slide"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide="next"
+            aria-label="Next slide"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       WHY CHOOSE US
+       ============================================================ -->
+    <section class="section-wrapper bg-alt" aria-labelledby="whyUsTitle">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-badge fade-up">Why Cozy Threads?</span>
+          <h2 class="section-title fade-up fade-up-delay-1" id="whyUsTitle">
+            The Cozy Difference
+          </h2>
+        </header>
+
+        <div class="row g-4">
+          <div class="col-6 col-md-3 fade-up fade-up-delay-1">
+            <div class="text-center p-3">
+              <div
+                style="
+                  width: 70px;
+                  height: 70px;
+                  border-radius: 50%;
+                  background: var(--gradient-pink);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto 1rem;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  box-shadow: var(--shadow-pink);
+                "
+                aria-hidden="true"
+              >
+                <i class="fas fa-hand-holding-heart"></i>
+              </div>
+              <h3
+                style="
+                  font-family: var(--font-display);
+                  font-size: 1.05rem;
+                  font-weight: 600;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                100% Handmade
+              </h3>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  line-height: 1.6;
+                "
+              >
+                Every piece is lovingly crafted by hand no machines, just
+                artisan skill.
+              </p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 fade-up fade-up-delay-2">
+            <div class="text-center p-3">
+              <div
+                style="
+                  width: 70px;
+                  height: 70px;
+                  border-radius: 50%;
+                  background: var(--gradient-sage);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto 1rem;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  box-shadow: 0 8px 25px rgba(168, 184, 154, 0.4);
+                "
+                aria-hidden="true"
+              >
+                <i class="fas fa-leaf"></i>
+              </div>
+              <h3
+                style="
+                  font-family: var(--font-display);
+                  font-size: 1.05rem;
+                  font-weight: 600;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Eco-Friendly Yarns
+              </h3>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  line-height: 1.6;
+                "
+              >
+                We use only sustainable, ethically sourced natural fibers for
+                our creations.
+              </p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 fade-up fade-up-delay-3">
+            <div class="text-center p-3">
+              <div
+                style="
+                  width: 70px;
+                  height: 70px;
+                  border-radius: 50%;
+                  background: var(--gradient-lavender);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto 1rem;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  box-shadow: 0 8px 25px rgba(184, 169, 201, 0.4);
+                "
+                aria-hidden="true"
+              >
+                <i class="fas fa-truck"></i>
+              </div>
+              <h3
+                style="
+                  font-family: var(--font-display);
+                  font-size: 1.05rem;
+                  font-weight: 600;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Free Shipping $75+
+              </h3>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  line-height: 1.6;
+                "
+              >
+                Enjoy complimentary delivery on all orders over $75, packed with
+                care.
+              </p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 fade-up fade-up-delay-4">
+            <div class="text-center p-3">
+              <div
+                style="
+                  width: 70px;
+                  height: 70px;
+                  border-radius: 50%;
+                  background: var(--gradient-brown);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0 auto 1rem;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  box-shadow: 0 8px 25px rgba(201, 149, 108, 0.4);
+                "
+                aria-hidden="true"
+              >
+                <i class="fas fa-undo-alt"></i>
+              </div>
+              <h3
+                style="
+                  font-family: var(--font-display);
+                  font-size: 1.05rem;
+                  font-weight: 600;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Easy Returns
+              </h3>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  line-height: 1.6;
+                "
+              >
+                Not completely in love? Return within 30 days, no questions
+                asked.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       TESTIMONIALS
+       ============================================================ -->
+    <section class="section-wrapper" aria-labelledby="testimonialsTitle">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-badge fade-up">Customer Love</span>
+          <h2
+            class="section-title fade-up fade-up-delay-1"
+            id="testimonialsTitle"
+          >
+            What Our Customers Say
+          </h2>
+          <p class="section-subtitle fade-up fade-up-delay-2">
+            Real stories from real customers who fell in love with Cozy Threads.
+          </p>
+        </header>
+
+        <!-- Desktop: 3-column grid -->
+        <div class="row g-4 d-none d-md-flex">
+          <div class="col-md-4 fade-up fade-up-delay-1">
+            <article class="testimonial-card">
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i> <i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                "The Blush Bloom Cardigan is absolutely stunning! The quality is
+                beyond anything I expected soft, warm, and so beautifully made.
+                I've received so many compliments!"
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80"
+                  alt="Portrait of Emma Johnson"
+                  class="testimonial-avatar"
+                />
+                <div>
+                  <div class="testimonial-name">Emma Johnson</div>
+                  <div class="testimonial-role">Verified Buyer · Cardigan</div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4 fade-up fade-up-delay-2">
+            <article class="testimonial-card">
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i> <i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                "I ordered the Lavender Cloud Throw and it's my new favourite
+                thing. Draped over my sofa, it makes the whole room feel like a
+                warm hug. Worth every single penny!"
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
+                  alt="Portrait of Sophia Martinez"
+                  class="testimonial-avatar"
+                />
+                <div>
+                  <div class="testimonial-name">Sophia Martinez</div>
+                  <div class="testimonial-role">
+                    Verified Buyer · Throw Blanket
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4 fade-up fade-up-delay-3">
+            <article class="testimonial-card">
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i> <i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                "Ordered the Sage Dreams Tote and the Boho Mini Bag as gifts.
+                Both arrived beautifully packaged with a handwritten note. Cozy
+                Threads is such a gem I'm a customer for life!"
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&q=80"
+                  alt="Portrait of Lily Chen"
+                  class="testimonial-avatar"
+                />
+                <div>
+                  <div class="testimonial-name">Lily Chen</div>
+                  <div class="testimonial-role">Verified Buyer · Bags</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Mobile: Carousel -->
+        <div
+          id="testimonialsCarousel"
+          class="carousel slide d-md-none"
+          data-bs-ride="carousel"
+          aria-label="Customer testimonials"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <article class="testimonial-card mx-2">
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                  "The Blush Bloom Cardigan is absolutely stunning! The quality
+                  is beyond anything I expected."
+                </p>
+                <div class="testimonial-author">
+                  <img
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80"
+                    alt="Emma Johnson"
+                    class="testimonial-avatar"
+                  />
+                  <div>
+                    <div class="testimonial-name">Emma Johnson</div>
+                    <div class="testimonial-role">Verified Buyer</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="carousel-item">
+              <article class="testimonial-card mx-2">
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                  "The Lavender Cloud Throw makes the whole room feel like a
+                  warm hug. Worth every penny!"
+                </p>
+                <div class="testimonial-author">
+                  <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
+                    alt="Sophia Martinez"
+                    class="testimonial-avatar"
+                  />
+                  <div>
+                    <div class="testimonial-name">Sophia Martinez</div>
+                    <div class="testimonial-role">Verified Buyer</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="carousel-item">
+              <article class="testimonial-card mx-2">
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                  "Ordered as gifts both arrived beautifully packaged with a
+                  handwritten note. A gem!"
+                </p>
+                <div class="testimonial-author">
+                  <img
+                    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&q=80"
+                    alt="Lily Chen"
+                    class="testimonial-avatar"
+                  />
+                  <div>
+                    <div class="testimonial-name">Lily Chen</div>
+                    <div class="testimonial-role">Verified Buyer</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div
+            class="carousel-indicators position-relative mt-3"
+            style="filter: invert(50%)"
+          >
+            <button
+              type="button"
+              data-bs-target="#testimonialsCarousel"
+              data-bs-slide-to="0"
+              class="active"
+              aria-label="Testimonial 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#testimonialsCarousel"
+              data-bs-slide-to="1"
+              aria-label="Testimonial 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#testimonialsCarousel"
+              data-bs-slide-to="2"
+              aria-label="Testimonial 3"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       INSTAGRAM GALLERY STRIP
+       ============================================================ -->
+    <section aria-label="Instagram gallery">
+      <div style="background: var(--bg-secondary); padding: 60px 0">
+        <div class="container">
+          <div class="text-center mb-4 fade-up">
+            <span class="section-badge">Follow Us</span>
+            <h2 class="section-title">@cozythreads</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem">
+              <i class="fab fa-instagram text-pink me-1"></i>
+              Tag us with <strong>#CozyThreads</strong> to be featured!
+            </p>
+          </div>
+          <div class="row g-2">
+            <div
+              class="col-6 col-sm-4 col-md-2 scale-in"
+              style="transition-delay: 0.05s"
+            >
+              <div
+                style="
+                  border-radius: var(--radius-md);
+                  overflow: hidden;
+                  aspect-ratio: 1;
+                  position: relative;
+                  cursor: pointer;
+                "
+                class="insta-thumb"
+              >
+                <img
+                  src="image/cardigan1.png"
+                  alt="Instagram post — crochet cardigan"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.4s;
+                  "
+                  loading="lazy"
+                />
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(61, 44, 30, 0.4);
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                    font-size: 1.2rem;
+                  "
+                  class="insta-overlay"
+                >
+                  <i class="fab fa-instagram"></i>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-6 col-sm-4 col-md-2 scale-in"
+              style="transition-delay: 0.1s"
+            >
+              <div
+                style="
+                  border-radius: var(--radius-md);
+                  overflow: hidden;
+                  aspect-ratio: 1;
+                  position: relative;
+                  cursor: pointer;
+                "
+                class="insta-thumb"
+              >
+                <img
+                  src="image/greenBag.png"
+                  alt="Instagram post — sage tote bag"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.4s;
+                  "
+                  loading="lazy"
+                />
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(61, 44, 30, 0.4);
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                    font-size: 1.2rem;
+                  "
+                  class="insta-overlay"
+                >
+                  <i class="fab fa-instagram"></i>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-6 col-sm-4 col-md-2 scale-in"
+              style="transition-delay: 0.15s"
+            >
+              <div
+                style="
+                  border-radius: var(--radius-md);
+                  overflow: hidden;
+                  aspect-ratio: 1;
+                  position: relative;
+                  cursor: pointer;
+                "
+                class="insta-thumb"
+              >
+                <img
+                  src="image/Blanket.png"
+                  alt="Instagram post — lavender throw"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.4s;
+                  "
+                  loading="lazy"
+                />
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(61, 44, 30, 0.4);
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                    font-size: 1.2rem;
+                  "
+                  class="insta-overlay"
+                >
+                  <i class="fab fa-instagram"></i>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-6 col-sm-4 col-md-2 scale-in"
+              style="transition-delay: 0.2s"
+            >
+              <div
+                style="
+                  border-radius: var(--radius-md);
+                  overflow: hidden;
+                  aspect-ratio: 1;
+                  position: relative;
+                  cursor: pointer;
+                "
+                class="insta-thumb"
+              >
+                <img
+                  src="image/croptop.png"
+                  alt="Instagram post — crochet crop top"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.4s;
+                  "
+                  loading="lazy"
+                />
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(61, 44, 30, 0.4);
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                    font-size: 1.2rem;
+                  "
+                  class="insta-overlay"
+                >
+                  <i class="fab fa-instagram"></i>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-6 col-sm-4 col-md-2 scale-in"
+              style="transition-delay: 0.25s"
+            >
+              <div
+                style="
+                  border-radius: var(--radius-md);
+                  overflow: hidden;
+                  aspect-ratio: 1;
+                  position: relative;
+                  cursor: pointer;
+                "
+                class="insta-thumb"
+              >
+                <img
+                  src="image/smallBag.png"
+                  alt="Instagram post — boho shoulder bag"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.4s;
+                  "
+                  loading="lazy"
+                />
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(61, 44, 30, 0.4);
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                    font-size: 1.2rem;
+                  "
+                  class="insta-overlay"
+                >
+                  <i class="fab fa-instagram"></i>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-6 col-sm-4 col-md-2 scale-in"
+              style="transition-delay: 0.3s"
+            >
+              <div
+                style="
+                  border-radius: var(--radius-md);
+                  overflow: hidden;
+                  aspect-ratio: 1;
+                  position: relative;
+                  cursor: pointer;
+                "
+                class="insta-thumb"
+              >
+                <img
+                  src="image/bukethat.png"
+                  alt="Instagram post — crochet bucket hat"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.4s;
+                  "
+                  loading="lazy"
+                />
+                <div
+                  style="
+                    position: absolute;
+                    inset: 0;
+                    background: rgba(61, 44, 30, 0.4);
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                    font-size: 1.2rem;
+                  "
+                  class="insta-overlay"
+                >
+                  <i class="fab fa-instagram"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <style>
+            .insta-thumb:hover img {
+              transform: scale(1.08);
+            }
+            .insta-thumb:hover .insta-overlay {
+              opacity: 1 !important;
+            }
+          </style>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       NEWSLETTER
+       ============================================================ -->
+    <section
+      id="newsletter"
+      class="section-wrapper"
+      aria-labelledby="newsletterTitle"
+    >
+      <div class="container">
+        <div class="text-center position-relative" style="z-index: 1">
+          <span class="section-badge fade-up">Join the Community</span>
+          <h2
+            class="section-title fade-up fade-up-delay-1"
+            id="newsletterTitle"
+          >
+            Get Cozy in Your Inbox
+          </h2>
+          <p class="section-subtitle fade-up fade-up-delay-2">
+            Subscribe for exclusive crochet patterns, new arrivals,
+            behind-the-scenes peeks and a <strong>10% discount</strong> on your
+            first order!
+          </p>
+
+          <form
+            id="newsletterForm"
+            class="fade-up fade-up-delay-3"
+            novalidate
+            aria-label="Newsletter subscription form"
+          >
+            <div class="newsletter-form-wrap">
+              <label for="newsletterEmail" class="visually-hidden"
+                >Your email address</label
+              >
+              <input
+                type="email"
+                id="newsletterEmail"
+                name="email"
+                class="newsletter-input"
+                placeholder="your@email.com"
+                required
+                autocomplete="email"
+                aria-required="true"
+              />
+              <button type="submit" class="btn-primary-custom">
+                <i class="fas fa-paper-plane me-1"></i>Subscribe
+              </button>
+            </div>
+            <p
+              style="
+                font-size: 0.75rem;
+                color: var(--text-light);
+                margin-top: 0.75rem;
+              "
+            >
+              <i class="fas fa-lock me-1"></i>
+              We respect your privacy. Unsubscribe anytime.
+            </p>
+          </form>
+
+          <!-- Trust badges -->
+          <div
+            class="d-flex justify-content-center gap-4 mt-4 flex-wrap fade-up fade-up-delay-4"
+          >
+            <span
+              style="
+                font-size: 0.8rem;
+                color: var(--text-medium);
+                display: flex;
+                align-items: center;
+                gap: 0.35rem;
+              "
+            >
+              <i class="fas fa-users text-pink"></i> 5,000+ subscribers
+            </span>
+            <span
+              style="
+                font-size: 0.8rem;
+                color: var(--text-medium);
+                display: flex;
+                align-items: center;
+                gap: 0.35rem;
+              "
+            >
+              <i class="fas fa-envelope text-pink"></i> Weekly crochet tips
+            </span>
+            <span
+              style="
+                font-size: 0.8rem;
+                color: var(--text-medium);
+                display: flex;
+                align-items: center;
+                gap: 0.35rem;
+              "
+            >
+              <i class="fas fa-gift text-pink"></i> Exclusive offers
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="row gy-4">
+          <!-- Brand column -->
+          <div class="col-12 col-md-4">
+            <span class="footer-brand-name">Cozy Threads</span>
+            <p class="footer-brand-desc">
+              Lovingly handcrafted crochet creations made with premium
+              sustainable yarns. Each piece tells a story of patience, love and
+              artisan skill.
+            </p>
+            <div
+              class="footer-social"
+              role="list"
+              aria-label="Social media links"
+            >
+              <a
+                href="#"
+                class="social-btn"
+                aria-label="Follow us on Instagram"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                class="social-btn"
+                aria-label="Follow us on Pinterest"
+                title="Pinterest"
+              >
+                <i class="fab fa-pinterest-p" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                class="social-btn"
+                aria-label="Follow us on TikTok"
+                title="TikTok"
+              >
+                <i class="fab fa-tiktok" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                class="social-btn"
+                aria-label="Follow us on Facebook"
+                title="Facebook"
+              >
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#"
+                class="social-btn"
+                aria-label="Watch us on YouTube"
+                title="YouTube"
+              >
+                <i class="fab fa-youtube" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick links -->
+          <div class="col-6 col-md-2">
+            <h3 class="footer-title">Shop</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="products.html?category=clothing">Clothing</a></li>
+              <li><a href="products.html?category=bags">Bags & Totes</a></li>
+              <li><a href="products.html?category=home">Home Décor</a></li>
+              <li>
+                <a href="products.html?category=accessories">Accessories</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Info links -->
+          <div class="col-6 col-md-2">
+            <h3 class="footer-title">Info</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="about.html">Our Story</a></li>
+              <li><a href="#">Sustainability</a></li>
+              <li><a href="#">Size Guide</a></li>
+              <li><a href="#">Care Instructions</a></li>
+              <li><a href="#">Gift Cards</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="col-12 col-md-4">
+            <h3 class="footer-title">Get in Touch</h3>
+            <address style="font-style: normal">
+              <div class="footer-contact-item">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <span>hello@cozythreads.com</span>
+              </div>
+              <div class="footer-contact-item">
+                <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                <span>+91 123 234-5678</span>
+              </div>
+              <div class="footer-contact-item">
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                <span>42 Yarn Lane, India, OR 97201</span>
+              </div>
+              <div class="footer-contact-item">
+                <i class="fas fa-clock" aria-hidden="true"></i>
+                <span>Mon–Fri: 9am–6pm IST</span>
+              </div>
+            </address>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer bottom bar -->
+      <div class="container">
+        <div class="footer-bottom">
+          <p class="footer-bottom-text">
+            © 2026 <a href="index.html">Cozy Threads</a>. Made with
+            <i
+              class="fas fa-heart"
+              style="color: var(--dusty-pink)"
+              aria-label="love"
+            ></i>
+            & lots of yarn.
+            <a href="#" style="margin-left: 1rem">Privacy Policy</a> ·
+            <a href="#">Terms of Service</a>
+          </p>
+          <div class="footer-payments" aria-label="Accepted payment methods">
+            <span class="payment-icon"
+              ><i class="fab fa-cc-visa" aria-label="Visa"></i
+            ></span>
+            <span class="payment-icon"
+              ><i class="fab fa-cc-mastercard" aria-label="Mastercard"></i
+            ></span>
+            <span class="payment-icon"
+              ><i class="fab fa-cc-paypal" aria-label="PayPal"></i
+            ></span>
+            <span class="payment-icon"
+              ><i class="fab fa-cc-apple-pay" aria-label="Apple Pay"></i
+            ></span>
+            <span class="payment-icon"
+              ><i class="fab fa-cc-stripe" aria-label="Stripe"></i
+            ></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================================
+       QUICK VIEW MODAL
+       ============================================================ -->
+    <div
+      class="modal fade"
+      id="quickViewModal"
+      tabindex="-1"
+      aria-labelledby="quickViewModalLabel"
+      aria-hidden="true"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="quickViewModalLabel">
+              <i class="fas fa-eye me-2 text-pink"></i>Quick View
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-3 p-md-4">
+            <div class="row g-4">
+              <div class="col-md-5">
+                <img id="qv-img" src="" alt="" class="modal-product-img" />
+              </div>
+              <div class="col-md-7">
+                <span id="qv-badge"></span>
+                <p id="qv-category" class="product-category mt-2"></p>
+                <h3 id="qv-name" class="modal-product-name"></h3>
+                <div class="product-rating mb-1">
+                  <span id="qv-stars" class="stars"></span>
+                  <span id="qv-reviews" class="rating-count"></span>
+                </div>
+                <div class="mb-3">
+                  <span id="qv-price" class="modal-product-price"></span>
+                  <span id="qv-old-price" class="product-price-old ms-2"></span>
+                </div>
+                <p id="qv-desc" class="modal-product-desc"></p>
+                <div class="modal-meta">
+                  <span class="meta-chip"
+                    ><i class="fas fa-palette me-1"></i>
+                    <span id="qv-colors"></span
+                  ></span>
+                  <span class="meta-chip"
+                    ><i class="fas fa-tags me-1"></i>
+                    <span id="qv-material"></span
+                  ></span>
+                  <span class="meta-chip"
+                    ><i
+                      class="fas fa-check-circle me-1"
+                      style="color: var(--sage-dark)"
+                    ></i>
+                    In Stock</span
+                  >
+                </div>
+                <div class="d-flex gap-2 mt-3 flex-wrap">
+                  <button
+                    id="qv-add-cart"
+                    class="btn-primary-custom flex-grow-1"
+                    data-bs-dismiss="modal"
+                  >
+                    <i class="fas fa-shopping-bag me-1"></i> Add to Cart
+                  </button>
+                  <a
+                    href="products.html"
+                    class="btn-outline-custom"
+                    data-bs-dismiss="modal"
+                  >
+                    <i class="fas fa-store me-1"></i> Full Shop
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dark Mode FAB -->
+    <button
+      id="darkModeFab"
+      class="dark-mode-fab"
+      aria-label="Toggle dark mode"
+    >
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Back to Top -->
+    <button id="backToTop" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
